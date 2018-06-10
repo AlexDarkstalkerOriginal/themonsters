@@ -173,9 +173,18 @@ input:focus, button:focus, a:focus {
     color: #0000ff;
   }
 
+  .monster .sell a, .monster .unsell a {
+    color: #fff;
+  }
+
   .prize:after {
     content: 'NAS';
     margin-left: 5px;
+  }
+
+  .monster .unsell {
+    background: red;
+    box-shadow: 3px 3px 10px red;
   }
 
   .monster .prize {
@@ -190,7 +199,7 @@ input:focus, button:focus, a:focus {
     margin: 5px auto 10px auto;  
   }
 
-  .monster button, .gift_box .get, .no_monsters button { 
+  .monster button, .gift_box .get, .no_monsters button, #sell .sell{ 
     border: none;
     padding: 10px;
     width: 100px;
@@ -260,6 +269,13 @@ input:focus, button:focus, a:focus {
     margin: 0 auto 20px auto;
   }
   
+  .logo:after {
+    content: 'alpha v0.1';
+    font-size: 34px;
+    margin-top: -10px;
+    color: #fff;
+  }
+
   .logo img {
     width: 100%;
   }
@@ -576,7 +592,7 @@ input:focus, button:focus, a:focus {
     margin-bottom: 40px;
   }
 
-  #my_monsters_popup .mfp-close {
+  #my_monsters_popup .mfp-close, #transaction .mfp-close {
     color: #fff;
   }
 /*попап с монстрами*/
@@ -628,9 +644,9 @@ input:focus, button:focus, a:focus {
 /*нельзя купить фри монстра*/
 
 
-/*попап транзации*/
+/*попап транзации и села*/
 
-  #transaction {
+  #transaction, #sell {
     background: url('../img/lab.png') no-repeat; 
     padding: 60px;
     position: relative;
@@ -651,8 +667,41 @@ input:focus, button:focus, a:focus {
     opacity: .2;
     z-index: 0;    
   }
+  
+  #sell input {
+    display: block;
+    margin: 0 auto;
+    width: 100px;
+    border: none;
+    padding: 10px;
+    background: rgba(255,255,255,0.9);
+    border-radius: 5px;
+    font-size: 20px;
+  }  
+  
+  #sell .mfp-close {
+    color: #fff;
+  }
 
-  #transaction h1 {
+  #sell .sell:after {
+    content: 'NAS'
+    margin-left: 10px;
+  }
+
+  .nas {
+    position: absolute;
+    top: 145px;
+    left: 56%;
+    color: #fff;
+    font-size: 30px;
+  }
+
+  #sell .sell {
+    background: #ff9c44;
+    box-shadow: 3px 3px 10px #ff9c44;
+  }
+
+  #transaction h1, #sell h1 {
     color: #fff;
     text-align: center;
     margin-bottom: 40px;
@@ -662,3 +711,13 @@ input:focus, button:focus, a:focus {
     display: inline-block;
   }
 /*попап транзации*/
+
+
+/*фейк ссылки на попапы*/
+  .sell_fake, .attack_fake {
+    width: 0.0001px;
+    position: absolute;
+    left: -99999px;
+    top: -999999px;
+  }
+/*фейк ссылки на попапы*/

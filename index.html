@@ -37,9 +37,16 @@
 			<div v-show="market">
 				<div id="monster-market">
 					<monster-market
-					  v-for="post in monsters"
-					  v-bind:id="post.id"
-					  v-bind:name="post.name"
+					  v-for="monster in monsters_market"				  
+						v-bind:speed="monster.speed"
+						v-bind:name="monster.name"				  
+						v-bind:flex="monster.flex"
+						v-bind:power="monster.power"
+						v-bind:weight="monster.weight"
+						v-bind:src="'img/' + monster.name + '.png'"
+						v-bind:id="monster.id"
+						v-bind:owner="monster.owner"
+						v-bind:prize="monster.price"
 					></monster-market>		
 				</div>
 			</div>
@@ -52,7 +59,10 @@
 						v-bind:name="monster.name"				  
 						v-bind:flex="monster.flex"
 						v-bind:power="monster.power"
-						v-bind:weight="monster.weight"					
+						v-bind:weight="monster.weight"
+						v-bind:src="'img/' + monster.name + '.png'"
+						v-bind:id="monster.id"
+						v-bind:sale="monster.sale"
 					></my-monster-lab>		
 				</div>						
 			</div>
@@ -71,9 +81,15 @@
 			<div v-show="battleground">
 				<div id="monster-bg">
 					<monster-bg
-					  v-for="post in monsters"
-					  v-bind:id="post.id"
-					  v-bind:name="post.name"
+						v-for="monster in monsters_battle"				  
+						v-bind:speed="monster.speed"
+						v-bind:name="monster.name"				  
+						v-bind:flex="monster.flex"
+						v-bind:power="monster.power"
+						v-bind:weight="monster.weight"
+						v-bind:src="'img/' + monster.name + '.png'"
+						v-bind:id="monster.id"
+						v-bind:owner="monster.owner"
 					></monster-bg>		
 				</div>
 			</div>
@@ -116,7 +132,8 @@
 				  v-bind:name="monster.name"				  
 				  v-bind:flex="monster.flex"
 				  v-bind:power="monster.power"
-				  v-bind:weight="monster.weight"				  
+				  v-bind:weight="monster.weight"
+				  v-bind:src="'img/' + monster.name + '.png'"	  
 				></monster-gift>												
 			</div>
 
@@ -125,8 +142,8 @@
 
 				<div class="wrap">
 					<div class="monster">
-						<h3>Chicken</h3>
-						<img src="img/chicken.png" alt="">						
+						<h3>Korim</h3>
+						<img src="img/Korim.png" alt="">						
 						<a href="#" class="info"><img src="img/info.png" alt=""></a>
 						<div class="stats">
 							<span class="speed">speed: <span class="value">13</span></span>
@@ -141,8 +158,8 @@
 					<div class="vs">VS</div>
 
 					<div class="monster">
-						<h3>Chicken</h3>
-						<img src="img/chicken.png" alt="">						
+						<h3>Korim</h3>
+						<img src="img/Korim.png" alt="">						
 						<a href="#" class="info"><img src="img/info.png" alt=""></a>
 						<div class="stats">
 							<span class="speed">speed: <span class="value">13</span></span>
@@ -156,25 +173,24 @@
 				</div>
 			</div>
 		
-			<div class="monster_page" v-show="monster_page">
-				<div class="monster">
-					<h3>Pink Guy</h3>
-					<img src="img/pink.png" alt="">										
-					<div class="stats">
-						<span class="speed">speed: <span class="value">13</span></span>
-						<span class="agility">agility: <span class="value">13</span></span>
-						<span class="power">power: <span class="value">13</span></span>
-					</div>			
-					<span class="owner">owner <span class="value">n1UKWyKoDtMdmsomgQmsDa2rPMWLKVfEYp1</span></span>
-					<span class="weight">6.8 kg</span>												
-				</div>
+			<div class="monster_page" v-show="monster_page">			
+				<my-monster-page
+					v-for="monster in monster_page_arr"				  
+					v-bind:speed="monster.speed"
+					v-bind:name="monster.name"				  
+					v-bind:flex="monster.flex"
+					v-bind:power="monster.power"
+					v-bind:weight="monster.weight"
+					v-bind:src="'img/' + monster.name + '.png'"
+					v-bind:owner="monster.owner"
+				></my-monster-page>						
 				<div class="history">
 					<h1>Fights history</h1>
 					<ul>					
 						<li><span class="opponent">Oppenent</span><span class="result">Result</span></li>
-						<li><img class="opp" src="img/big.png" alt=""><span class="res winner">Win <span class="weight"> (+ 1kg)</span></span><a href="#" class="info"><img src="img/info.png" alt=""></a></li>
-						<li><img class="opp" src="img/long.png" alt=""><span class="res winner">Win <span class="weight"> (+ 1kg)</span></span><a href="#" class="info"><img src="img/info.png" alt=""></a></li>
-						<li><img class="opp" src="img/green.png" alt=""><span class="res loose">Loose <span class="weight"> (- 1kg)</span></span><a href="#" class="info"><img src="img/info.png" alt=""></a></li>
+						<li><img class="opp" src="img/Korim.png" alt=""><span class="res winner">Win <span class="weight"> (+ 1kg)</span></span><a href="#" class="info"><img src="img/info.png" alt=""></a></li>
+						<li><img class="opp" src="img/Korim.png" alt=""><span class="res winner">Win <span class="weight"> (+ 1kg)</span></span><a href="#" class="info"><img src="img/info.png" alt=""></a></li>
+						<li><img class="opp" src="img/Korim.png" alt=""><span class="res loose">Loose <span class="weight"> (- 1kg)</span></span><a href="#" class="info"><img src="img/info.png" alt=""></a></li>
 					</ul>
 				</div>
 			</div>
@@ -184,10 +200,16 @@
 		<div id="my_monsters_popup" class="mfp-fade mfp-hide">		
 			<h1>Pick your monster for fight!</h1>
 			<div id="my-monster-lab-popup">
-				<my-monster-lab-popup
-				  v-for="post in monsters"
-				  v-bind:id="post.id"
-				  v-bind:name="post.name"
+				<my-monster-lab-popup				  
+					v-for="monster in my_monsters"				  
+					v-bind:speed="monster.speed"
+					v-bind:name="monster.name"				  
+					v-bind:flex="monster.flex"
+					v-bind:power="monster.power"
+					v-bind:weight="monster.weight"
+					v-bind:src="'img/' + monster.name + '.png'"
+					v-bind:id="monster.id"
+					v-bind:born_time="monster.freeze"					
 				></my-monster-lab-popup>
 			</div>		
 		</div>
@@ -206,13 +228,23 @@
 			</span>
 		</div>
 	</div>
+
+	<div id="sell" class="mfp-fade mfp-hide">
+		<h1>Enter price for monster</h1>
+		<input type="text"><span class="nas">NAS</span>
+		<button class="sell">Sell</button>
+	</div>
+	
+	<a href="#sell" class="popup sell_fake"></a>
+	<a href="#my_monsters_popup" class="popup attack_fake"></a>
+
 	<a href="#transaction" class="transaction" style="position: absolute; width: 0.1px; opacity: .1"></a>	
 	<div id="transaction" class="mfp-hide mfp-fade">
 		<p>Transaction is <span class="status_trans"></span></p>
-		<img src="img/pending.gif" alt="">
+		<!-- <img src="img/pending.gif" alt=""> -->
 		<div class="hash"></div>			
 	</div>
-
+	
 	<div class="noExtension" style="display: none"> 
 		NOTE: Please install <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a>  to use BlackJack Nebulas or try CTRL+F5
 	</div>
