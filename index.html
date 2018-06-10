@@ -94,14 +94,18 @@
 				</div>
 			</div>
 
-			<div v-show="rank">
-				<div id="monster-ranked">
+			<div v-show="rank">				
 					<monster-ranked
-					  v-for="post in monsters"
-					  v-bind:id="post.id"
-					  v-bind:name="post.name"
-					></monster-ranked>		
-				</div>
+					 	v-for="monster in monsters_ranked"				  
+						v-bind:speed="monster.speed"
+						v-bind:name="monster.name"				  
+						v-bind:flex="monster.flex"
+						v-bind:power="monster.power"
+						v-bind:weight="monster.weight"
+						v-bind:src="'img/' + monster.name + '.png'"
+						v-bind:id="monster.id"
+						v-bind:owner="monster.owner"
+					></monster-ranked>						
 			</div>
 						
 			<div v-show="lab_gift">
@@ -253,7 +257,7 @@
 	</div>
 	
 	<div class="noExtension" style="display: none"> 
-		NOTE: Please install <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a>  to use BlackJack Nebulas or try CTRL+F5
+		NOTE: Please install <a target="_blank" href="https://github.com/ChengOrangeJu/WebExtensionWallet">WebExtensionWallet</a>  to use TheMonsters
 	</div>
 	<div class="errNetwork" style="display: none">
 		NOTE: Sorry, you use incorrect net

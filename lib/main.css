@@ -723,3 +723,16 @@ input:focus, button:focus, a:focus {
   }
 /*фейк ссылки на попапы*/
 
+.noExtension {
+  color: #fff;  
+  width: 1100px;
+  display: block;
+  margin: 0 auto 0 auto;
+  padding: 300px;
+  font-size: 30px;
+}
+
+.noExtension a {
+  color: #fff;
+  border-bottom: 1px solid #fff;
+}
