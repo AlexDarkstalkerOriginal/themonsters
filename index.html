@@ -120,7 +120,7 @@
 						<img src="img/box_green.png" alt="">
 						<span class="cost">FREE monster</span>
 						<button class="get get_free_monster">Get free</button>
-						<span class="tip">Only three for each account</span>
+						<span class="tip">Only 3 for each account</span>
 					</div>
 					<div class="error">
 						<h1></h1>
@@ -145,35 +145,21 @@
 				<div class="fight_res">Fight result</div>
 
 				<div class="wrap">
-					<div class="monster">
-						<h3>Korim</h3>
-						<img src="img/Korim.png" alt="">						
-						<a href="#" class="info"><img src="img/info.png" alt=""></a>
-						<div class="stats">
-							<span class="speed">speed: <span class="value">13</span></span>
-							<span class="agility">agility: <span class="value">13</span></span>
-							<span class="power">power: <span class="value">13</span></span>
-						</div>
-						<span class="owner">owner <span class="value">n1UKWyKoDtMdmsomgQmsDa2rPMWLKVfEYp1</span></span>
-						<span class="weight">6.8 kg</span>						
-						<button class="result winner">Winner <span class="kg">+ 1 kg</span></button>								
-					</div>	
+					<monster-fight
+						v-for="monster in monsters_fight"				  
+						v-bind:speed="monster.speed"
+						v-bind:name="monster.name"				  
+						v-bind:flex="monster.flex"
+						v-bind:power="monster.power"
+						v-bind:weight="monster.weight"
+						v-bind:src="'img/' + monster.name + '.png'"
+						v-bind:id="monster.id"
+						v-bind:owner="monster.owner"
+						v-bind:win="monster.win"
+						v-bind:boolen="monster.boolen"
+					></monster-fight>	
 
 					<div class="vs">VS</div>
-
-					<div class="monster">
-						<h3>Korim</h3>
-						<img src="img/Korim.png" alt="">						
-						<a href="#" class="info"><img src="img/info.png" alt=""></a>
-						<div class="stats">
-							<span class="speed">speed: <span class="value">13</span></span>
-							<span class="agility">agility: <span class="value">13</span></span>
-							<span class="power">power: <span class="value">13</span></span>
-						</div>
-						<span class="owner">owner <span class="value">n1UKWyKoDtMdmsomgQmsDa2rPMWLKVfEYp1</span></span>
-						<span class="weight">6.8 kg</span>						
-						<button class="result looser">Looser<span class="kg">- 1 kg</span></button>				
-					</div>
 				</div>
 			</div>
 		
@@ -191,10 +177,7 @@
 				<div class="history">
 					<h1>Fights history</h1>
 					<ul>					
-						<li><span class="opponent">Oppenent</span><span class="result">Result</span></li>
-						<li><img class="opp" src="img/Korim.png" alt=""><span class="res winner">Win <span class="weight"> (+ 1kg)</span></span><a href="#" class="info"><img src="img/info.png" alt=""></a></li>
-						<li><img class="opp" src="img/Korim.png" alt=""><span class="res winner">Win <span class="weight"> (+ 1kg)</span></span><a href="#" class="info"><img src="img/info.png" alt=""></a></li>
-						<li><img class="opp" src="img/Korim.png" alt=""><span class="res loose">Loose <span class="weight"> (- 1kg)</span></span><a href="#" class="info"><img src="img/info.png" alt=""></a></li>
+						<li><span class="opponent">Oppenent</span><span class="result">Result</span></li>						
 					</ul>
 				</div>
 			</div>
@@ -220,13 +203,39 @@
 
 		<div id="faq" class="mfp-fade mfp-hide">
 			<div class="container_faq">
-				<h3>How to play</h3>
-				<p></p>
+				<h1>How to play</h1>
+				<p>
+					<b>What is The Monsters?</b>
+					<br>
+					The Monsters is a game centered around fights, collectible, and oh-so-adorable creatures we call CryptoMonsters! Each monster is one-of-a-kind and 100% owned by you; it cannot be replicated, taken away, or destroyed. The Monsters is the blockchain game running on Nebulas smart contracts.
+					1) Install Nebulas wallet plugin for Chrome. 
+					2) Unlock your Nebulas wallet and please make sure your are on Mainnet as shown on the right.
+					3) Go to https://alexdarkstalkeroriginal.github.io/themonsters/index.html to start playing.
+					The Monster requires a little NAS to pay for gas to complete in-game operations.
+					
+					<br><br>
+						
+					<b>How to obtain crypto monster</b> <br>
+					OPEN YOUR BOX: You can give three random crypto Monster for free, player can use 0.01 NAS to buy Monster Box as well.					
+					Buy From Other Players: 
+					Visit Market to buy crypto Monster with certain parameters from other players.
+					<br><br>
+					<b>How to attack</b><br>
+					Growing your crypto monster by attacking opponents, take the lead and raise your level.
+					The core parameter of every Monster is the level  which defines its influence. Monster is able to level up by attacking others and taking a bite off losers(20% of level).
+					Game economy can’t be influenced by developers as there is no tools to change code after smart contracts are deployed and game is launched.
+					<br><br>
+					<b>Know more about freeze time</b><br>
+					After the fighting ends, there were freeze time for both sides. Freeze time for the offensive is determined by the Renewal Value: the more the renewal, the shorter the freeze time. For defenders, the freeze time is same one hour.
+					<br><br>
+					<b>About market</b><br>
+					Crypto Monsters are traded directly between players.You can click “Sell” button for transaction, and take it off the market by click “Cancel Sale” button.
+				</p>
 			</div>
 		</div>
 
 		<div id="about" class="mfp-fade mfp-hide">
-			<h3>Contact</h3>
+			<h1>Contact</h1>
 			<span>E-mail: 
 				<a href="mailto:alexdarkstalkeroriginal@gmail.com">alexdarkstalkeroriginal@gmail.com</a>
 			</span>
