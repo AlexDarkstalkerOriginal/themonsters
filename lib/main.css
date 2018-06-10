@@ -199,7 +199,7 @@ input:focus, button:focus, a:focus {
     margin: 5px auto 10px auto;  
   }
 
-  .monster button, .gift_box .get, .no_monsters button, #sell .sell{ 
+  .monster button, .gift_box .get, .no_monsters button, #sell .sell, .ok_err{ 
     border: none;
     padding: 10px;
     width: 100px;
@@ -624,7 +624,7 @@ input:focus, button:focus, a:focus {
     margin-bottom: 20px;
   }
 
-  .no_monsters button {
+  .no_monsters button, .ok_err {
     width: 200px;
     background: #ff9c44;
     box-shadow: 3px 3px 10px #ff9c44;
@@ -646,7 +646,7 @@ input:focus, button:focus, a:focus {
 
 /*попап транзации и села*/
 
-  #transaction, #sell {
+  #transaction, #sell, #error_info {
     background: url('../img/lab.png') no-repeat; 
     padding: 60px;
     position: relative;
@@ -679,9 +679,10 @@ input:focus, button:focus, a:focus {
     font-size: 20px;
   }  
   
-  #sell .mfp-close {
+  #sell .mfp-close, #error_info .mfp-close {
     color: #fff;
   }
+
 
   #sell .sell:after {
     content: 'NAS'
@@ -701,7 +702,7 @@ input:focus, button:focus, a:focus {
     box-shadow: 3px 3px 10px #ff9c44;
   }
 
-  #transaction h1, #sell h1 {
+  #transaction h1, #sell h1, #error_info h1 {
     color: #fff;
     text-align: center;
     margin-bottom: 40px;
@@ -714,10 +715,11 @@ input:focus, button:focus, a:focus {
 
 
 /*фейк ссылки на попапы*/
-  .sell_fake, .attack_fake {
+  .sell_fake, .attack_fake, .error_info_fake, #error_info .mfp-close {
     width: 0.0001px;
     position: absolute;
     left: -99999px;
     top: -999999px;
   }
 /*фейк ссылки на попапы*/
+

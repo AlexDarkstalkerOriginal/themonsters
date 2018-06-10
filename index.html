@@ -110,13 +110,13 @@
 					<div class="pay">
 						<img src="img/box.png" alt="">
 						<span class="prize">Only 0.01</span>
-						<button class="get">Get monster</button>
+						<button class="get pay_monster_get">Get monster</button>
 					</div>						
 					<div class="free">
 						<img src="img/box_green.png" alt="">
 						<span class="cost">FREE monster</span>
 						<button class="get get_free_monster">Get free</button>
-						<span class="tip">One for each account</span>
+						<span class="tip">Only three for each account</span>
 					</div>
 					<div class="error">
 						<h1></h1>
@@ -209,7 +209,7 @@
 					v-bind:weight="monster.weight"
 					v-bind:src="'img/' + monster.name + '.png'"
 					v-bind:id="monster.id"
-					v-bind:born_time="monster.freeze"					
+					v-bind:born_time="monster.born_time"					
 				></my-monster-lab-popup>
 			</div>		
 		</div>
@@ -235,6 +235,13 @@
 		<button class="sell">Sell</button>
 	</div>
 	
+	<a href="#error_info" class="error_info_fake popup"></a>
+
+	<div id="error_info" class="mfp-fade mfp-hide">
+		<h1 class="error"></h1>
+		<button class="ok_err">Ok</button>
+	</div>
+
 	<a href="#sell" class="popup sell_fake"></a>
 	<a href="#my_monsters_popup" class="popup attack_fake"></a>
 
